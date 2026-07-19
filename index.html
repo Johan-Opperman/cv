@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Johan Opperman — CV · Cybersecurity, Automation &amp; AI</title>
+<meta name="description" content="Johan Opperman — building toward cybersecurity, automation and AI. Curriculum vitae and project portfolio. Robertson, Western Cape.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0d1117;--bg-2:#111823;--bg-3:#161e2b;
+    --line:#232d3b;--line-2:#2d3a4c;
+    --ink:#e6edf5;--ink-dim:#9aa8ba;--ink-faint:#5f6b7c;
+    --steel:#5b8dc7;--steel-bright:#7db0e8;
+    --amber:#e0a53d;--amber-dim:#8a6f3a;--ok:#4a9d6f;
+    --maxw:1120px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:'Inter',system-ui,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  /* full-page ambient background layers */
+  #bgcanvas{position:fixed;inset:0;z-index:1;width:100%;height:100%;pointer-events:none;opacity:1}
+  .bg-grid{position:fixed;inset:0;z-index:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:58px 58px;opacity:.18;pointer-events:none}
+  .bg-glow{position:fixed;z-index:0;width:55vw;height:55vw;border-radius:50%;filter:blur(80px);opacity:.22;pointer-events:none}
+  .bg-glow.g1{background:radial-gradient(circle,var(--steel),transparent 70%);top:-8%;left:-6%;animation:drift1 26s ease-in-out infinite alternate}
+  .bg-glow.g2{background:radial-gradient(circle,#4478b3,transparent 70%);bottom:-12%;right:-8%;animation:drift2 32s ease-in-out infinite alternate}
+  @keyframes drift1{0%{transform:translate(0,0)}100%{transform:translate(16vw,10vh)}}
+  @keyframes drift2{0%{transform:translate(0,0)}100%{transform:translate(-14vw,-9vh)}}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;position:relative;z-index:2}
+  a{color:inherit;text-decoration:none}
+  header{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);background:rgba(13,17,23,.72);border-bottom:1px solid var(--line)}
+  .bar{display:flex;align-items:center;justify-content:space-between;height:66px}
+  .brand{display:flex;align-items:center;gap:12px;font-family:'Space Grotesk';font-weight:700;letter-spacing:.02em}
+  .brand .mark{width:30px;height:30px;border:1.5px solid var(--steel);display:grid;place-items:center;position:relative;color:var(--steel-bright);font-size:13px;font-family:'JetBrains Mono'}
+  .brand .mark::before,.brand .mark::after{content:"";position:absolute;width:6px;height:6px;border:1.5px solid var(--amber)}
+  .brand .mark::before{top:-4px;left:-4px;border-right:none;border-bottom:none}
+  .brand .mark::after{bottom:-4px;right:-4px;border-left:none;border-top:none}
+  .brand b{font-size:16px}
+  .brand span{color:var(--ink-dim);font-weight:400;font-size:11px;font-family:'JetBrains Mono';letter-spacing:.05em}
+  nav.links{display:flex;gap:26px;align-items:center}
+  nav.links a{font-size:13.5px;color:var(--ink-dim);transition:color .2s;font-weight:500}
+  nav.links a:hover{color:var(--ink)}
+  .nav-cta{border:1px solid var(--line-2);padding:8px 15px;font-size:13px;color:var(--ink);font-weight:500;transition:all .2s}
+  .nav-cta:hover{border-color:var(--steel);background:rgba(91,141,199,.08)}
+  .menu-btn{display:none;background:none;border:1px solid var(--line-2);color:var(--ink);width:38px;height:38px;font-size:18px;cursor:pointer}
+
+  /* hero */
+  .hero{padding:92px 0 70px;position:relative}
+  .status{display:inline-flex;align-items:center;gap:9px;border:1px solid var(--line-2);background:var(--bg-2);padding:7px 14px;font-family:'JetBrains Mono';font-size:12px;color:var(--ink-dim);letter-spacing:.04em;margin-bottom:28px}
+  .status .dot{width:8px;height:8px;border-radius:50%;background:var(--ok);position:relative}
+  .status .dot::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:1px solid var(--ok);opacity:.5;animation:pulse 2.4s ease-out infinite}
+  @keyframes pulse{0%{transform:scale(.6);opacity:.7}100%{transform:scale(1.9);opacity:0}}
+  .hero h1{font-family:'Space Grotesk';font-weight:700;font-size:clamp(2.3rem,5.2vw,3.9rem);line-height:1.06;letter-spacing:-.02em;margin-bottom:22px;max-width:20ch;min-height:2.2em}
+  .hero h1 .accent{color:var(--steel-bright)}
+  .hero .lead{font-size:clamp(1.02rem,1.8vw,1.2rem);color:var(--ink-dim);max-width:60ch;margin-bottom:34px}
+  .cta{display:flex;gap:13px;flex-wrap:wrap}
+  .btn{padding:13px 24px;font-weight:600;font-size:15px;transition:all .2s;cursor:pointer;border:1px solid transparent;display:inline-flex;align-items:center;gap:9px}
+  .btn-primary{background:var(--steel);color:#08111c}
+  .btn-primary:hover{background:var(--steel-bright);transform:translateY(-2px)}
+  .btn-ghost{border-color:var(--line-2);color:var(--ink)}
+  .btn-ghost:hover{border-color:var(--steel);background:rgba(91,141,199,.06)}
+  .hero-meta{display:flex;gap:38px;margin-top:56px;padding-top:30px;border-top:1px solid var(--line);flex-wrap:wrap}
+  .hero-meta .k{font-size:11px;color:var(--ink-faint);letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px;font-family:'JetBrains Mono'}
+  .hero-meta .v{font-size:14.5px;color:var(--ink);font-weight:500}
+
+  section{padding:70px 0;position:relative}
+  .eyebrow{font-family:'JetBrains Mono';font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+  .eyebrow::before{content:"";width:26px;height:1px;background:var(--amber-dim)}
+  h2.title{font-family:'Space Grotesk';font-weight:700;font-size:clamp(1.7rem,3.2vw,2.4rem);letter-spacing:-.015em;margin-bottom:18px;line-height:1.12}
+  .section-lead{color:var(--ink-dim);max-width:60ch;font-size:1.03rem;margin-bottom:44px}
+
+  /* about */
+  .about p{color:var(--ink-dim);font-size:1.06rem;margin-bottom:18px;max-width:74ch}
+  .about p strong{color:var(--ink);font-weight:600}
+
+  /* skills */
+  .skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+  .skill{background:var(--bg-2);padding:28px 24px;transition:background .25s}
+  .skill:hover{background:var(--bg-3)}
+  .skill h4{font-family:'Space Grotesk';font-size:1.05rem;font-weight:600;margin-bottom:16px;display:flex;align-items:center;gap:9px}
+  .skill h4 .d{width:7px;height:7px;background:var(--steel);flex-shrink:0}
+  .skill ul{list-style:none}
+  .skill li{color:var(--ink-dim);font-size:.92rem;margin-bottom:9px;padding-left:16px;position:relative}
+  .skill li::before{content:"";position:absolute;left:0;top:9px;width:5px;height:1px;background:var(--steel)}
+
+  /* projects */
+  .projects{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .proj{border:1px solid var(--line);background:var(--bg-2);padding:30px 28px;position:relative;transition:all .25s;overflow:hidden}
+  .proj:hover{border-color:var(--line-2);transform:translateY(-3px)}
+  .proj::after{content:"";position:absolute;top:0;left:0;width:0;height:2px;background:var(--steel);transition:width .4s}
+  .proj:hover::after{width:100%}
+  .proj-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+  .proj .yr{font-family:'JetBrains Mono';font-size:11px;color:var(--ink-faint);letter-spacing:.04em}
+  .proj-tag{font-family:'JetBrains Mono';font-size:10.5px;letter-spacing:.05em;padding:3px 9px;border:1px solid var(--line-2);color:var(--ink-faint)}
+  .proj-tag.live{color:var(--ok);border-color:var(--ok)}
+  .proj-tag.past{color:var(--ink-faint)}
+  .proj h3{font-family:'Space Grotesk';font-size:1.24rem;font-weight:600;margin-bottom:10px}
+  .proj p{color:var(--ink-dim);font-size:.95rem;margin-bottom:16px}
+  .proj .stack{display:flex;flex-wrap:wrap;gap:7px}
+  .proj .stack span{font-family:'JetBrains Mono';font-size:11px;color:var(--ink-dim);background:var(--bg);border:1px solid var(--line);padding:4px 9px}
+
+  /* certs / journey row */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+  .cert-list{display:flex;flex-direction:column;gap:14px}
+  .cert{border:1px solid var(--line);background:var(--bg-2);padding:18px 20px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+  .cert .cn{font-weight:600;font-size:1rem}
+  .cert .cd{font-size:.85rem;color:var(--ink-dim);font-family:'JetBrains Mono'}
+  .cert .cs{font-family:'JetBrains Mono';font-size:10.5px;letter-spacing:.05em;padding:3px 9px;border:1px solid var(--amber-dim);color:var(--amber);white-space:nowrap}
+  .timeline{border-left:1px solid var(--line-2)}
+  .tl-item{position:relative;padding:0 0 26px 26px}
+  .tl-item::before{content:"";position:absolute;left:-5px;top:6px;width:9px;height:9px;background:var(--bg);border:1.5px solid var(--steel)}
+  .tl-item:last-child{padding-bottom:0}
+  .tl-item.now::before{background:var(--amber);border-color:var(--amber)}
+  .tl-item .yr{font-family:'JetBrains Mono';font-size:11px;color:var(--ink-faint);letter-spacing:.05em;margin-bottom:5px}
+  .tl-item h4{font-size:1rem;font-weight:600;margin-bottom:4px}
+  .tl-item p{font-size:.9rem;color:var(--ink-dim);margin:0}
+
+  /* contact */
+  .contact-panel{border:1px solid var(--line);background:linear-gradient(160deg,var(--bg-2),var(--bg));padding:52px 44px;position:relative;overflow:hidden}
+  .contact-panel::before{content:"";position:absolute;top:-1px;right:-1px;width:120px;height:120px;border-top:1px solid var(--amber-dim);border-right:1px solid var(--amber-dim);opacity:.4}
+  .seeking{font-size:1.02rem;color:var(--ink-dim);margin:18px 0 0;max-width:66ch}
+  .seeking strong{color:var(--ink)}
+  .contact-item{display:flex;align-items:center;gap:15px;padding:17px 19px;border:1px solid var(--line);background:var(--bg);transition:all .2s}
+  .contact-item:hover{border-color:var(--steel);transform:translateY(-2px)}
+  .contact-item .ico{width:36px;height:36px;border:1px solid var(--line-2);display:grid;place-items:center;color:var(--steel-bright);flex-shrink:0}
+  .contact-item .ico svg{width:18px;height:18px}
+  .contact-item .lbl{font-family:'JetBrains Mono';font-size:11px;color:var(--ink-faint);letter-spacing:.05em;text-transform:uppercase;margin-bottom:3px}
+  .contact-item .val{font-size:.96rem;color:var(--ink);font-weight:500;word-break:break-all}
+
+  footer{border-top:1px solid var(--line);padding:40px 0;margin-top:16px}
+  .foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px}
+  .foot .brand{font-size:15px}
+  .foot p{font-family:'JetBrains Mono';font-size:12px;color:var(--ink-faint)}
+  .foot-links{display:flex;gap:22px}
+  .foot-links a{font-size:13px;color:var(--ink-dim);transition:color .2s}
+  .foot-links a:hover{color:var(--steel-bright)}
+
+  /* explore more cross-links */
+  .explore{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:8px}
+  .ex-card{border:1px solid var(--line);background:var(--bg-2);padding:30px 28px;display:block;position:relative;overflow:hidden;transition:all .25s}
+  .ex-card:hover{border-color:var(--steel);transform:translateY(-3px);background:var(--bg-3)}
+  .ex-card::after{content:"";position:absolute;top:0;left:0;width:0;height:2px;background:var(--steel);transition:width .4s}
+  .ex-card:hover::after{width:100%}
+  .ex-card .ex-eyebrow{font-family:'JetBrains Mono';font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);margin-bottom:12px}
+  .ex-card h3{font-family:'Space Grotesk';font-size:1.3rem;font-weight:600;margin-bottom:8px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .ex-card h3 .arr{color:var(--steel-bright);transition:transform .25s}
+  .ex-card:hover h3 .arr{transform:translateX(5px)}
+  .ex-card p{color:var(--ink-dim);font-size:.95rem;margin:0}
+
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+  /* click-to-highlight pulse on target section */
+  @keyframes secPulse{
+    0%{box-shadow:inset 0 0 0 0 rgba(125,176,232,0)}
+    18%{box-shadow:inset 0 0 60px 0 rgba(125,176,232,.14)}
+    100%{box-shadow:inset 0 0 0 0 rgba(125,176,232,0)}
+  }
+  .sec-flash{animation:secPulse 1s ease-out}
+  .sec-flash .title,.sec-flash .eyebrow{animation:titleFlash 1s ease-out}
+  @keyframes titleFlash{0%,100%{color:inherit}25%{color:var(--steel-bright)}}
+
+  /* compact icon buttons */
+  .contact-icons{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap}
+  .ico-btn{width:54px;height:54px;border:1px solid var(--line-2);background:var(--bg);display:grid;place-items:center;color:var(--ink-dim);transition:all .25s;position:relative}
+  .ico-btn svg{width:22px;height:22px;transition:transform .25s}
+  .ico-btn:hover{color:var(--steel-bright);border-color:var(--steel);transform:translateY(-4px);box-shadow:0 8px 24px rgba(91,141,199,.18)}
+  .ico-btn:hover svg{transform:scale(1.1)}
+  .ico-btn.wa:hover{color:#25D366;border-color:#25D366;box-shadow:0 8px 24px rgba(37,211,102,.18)}
+  .ico-btn.li:hover{color:#0A66C2;border-color:#0A66C2;box-shadow:0 8px 24px rgba(10,102,194,.18)}
+  .ico-btn::after{content:attr(data-tip);position:absolute;bottom:-30px;left:50%;transform:translateX(-50%);font-family:'JetBrains Mono';font-size:10.5px;letter-spacing:.05em;color:var(--ink-faint);white-space:nowrap;opacity:0;transition:opacity .2s;pointer-events:none}
+  .ico-btn:hover::after{opacity:1}
+
+  /* hero */
+  .hero{position:relative;overflow:hidden}
+  .hero .wrap{position:relative;z-index:2}
+  /* typing caret for hero name */
+  .type-caret{display:inline-block;width:3px;height:1em;background:var(--steel-bright);margin-left:4px;vertical-align:-2px;animation:blink 1s step-end infinite}
+  @keyframes blink{50%{opacity:0}}
+  @media(prefers-reduced-motion:reduce){#bgcanvas{display:none}.bg-glow{animation:none}.type-caret{display:none}}
+
+  @media(max-width:860px){
+    nav.links{display:none}.menu-btn{display:grid;place-items:center}
+    nav.links.open{display:flex;position:absolute;top:66px;left:0;right:0;flex-direction:column;gap:0;background:rgba(13,17,23,.98);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);padding:14px 0 18px}
+    nav.links.open::before{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:32px 32px;opacity:.15;pointer-events:none}
+    nav.links.open a{position:relative;padding:15px 28px;font-size:15px;color:var(--ink-dim);border-left:2px solid transparent}
+    nav.links.open a:active,nav.links.open a:hover{color:var(--steel-bright);border-left-color:var(--steel);background:rgba(91,141,199,.10)}
+    nav.links.open .nav-cta{margin:12px 28px 2px;padding:13px;border:1px solid var(--steel);color:var(--steel-bright);text-align:center;border-left:1px solid var(--steel)}
+    .skills{grid-template-columns:1fr 1fr}
+    .projects{grid-template-columns:1fr}
+    .split{grid-template-columns:1fr;gap:40px}
+    .contact-panel{padding:36px 24px}.hero-meta{gap:26px}.explore{grid-template-columns:1fr}
+  }
+  @media(max-width:520px){.skills{grid-template-columns:1fr}}
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}nav.links.open a{opacity:1!important;transform:none!important}}
+</style>
+</head>
+<body>
+<!-- ambient animated background (whole page) -->
+<div class="bg-grid"></div>
+<div class="bg-glow g1"></div>
+<div class="bg-glow g2"></div>
+<canvas id="bgcanvas"></canvas>
+<header>
+  <div class="wrap bar">
+    <div class="brand">
+      <div class="mark">JO</div>
+      <div><b>Johan Opperman</b><br><span>CURRICULUM VITAE</span></div>
+    </div>
+    <nav class="links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="https://opperman.dev">Portfolio</a>
+      <a href="https://blog.opperman.dev">Blog</a>
+      <a href="#contact" class="nav-cta">Contact</a>
+    </nav>
+    <button class="menu-btn" aria-label="Menu" aria-expanded="false" onclick="toggleMenu(this)">&#8801;</button>
+  </div>
+</header>
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <div class="status reveal"><span class="dot"></span> OPEN TO JUNIOR / ENTRY-LEVEL SECURITY ROLES</div>
+      <h1 class="reveal" id="heroline" aria-label="Johan Opperman — building toward cybersecurity, automation & AI."><span id="typed"></span><span class="type-caret" id="hcaret"></span></h1>
+      <p class="lead reveal">Hands-on background in security and technical systems, now focused on offensive security, Python and practical AI. I learn by building things that actually run &mdash; and I&rsquo;m honest about where my skills are today.</p>
+      <div class="cta reveal">
+        <a href="#projects" class="btn btn-primary">See my work &rarr;</a>
+        <a href="#contact" class="btn btn-ghost">Get in touch</a>
+      </div>
+      <div class="hero-meta reveal">
+        <div><div class="k">Location</div><div class="v">Robertson, Western Cape</div></div>
+        <div><div class="k">Focus</div><div class="v">Cyber &middot; Python &middot; Automation &middot; AI</div></div>
+        <div><div class="k">Working toward</div><div class="v">eJPT &middot; PNPT</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap about">
+      <div class="eyebrow reveal">About</div>
+      <h2 class="title reveal">A builder moving into security.</h2>
+      <p class="reveal">I come from a hands-on, technical background &mdash; working in the security trade with automated systems and electrical installations, where troubleshooting under pressure and getting things working is the job. That practical, problem-solving mindset is what I&rsquo;m now bringing into technology.</p>
+      <p class="reveal">Today I&rsquo;m focused on <strong>offensive security, Python, automation and AI</strong> &mdash; learning through structured study and, more importantly, by building real projects: an AI assistant, a self-hosted home lab, and my own tools. I&rsquo;d rather show working projects than list credentials I don&rsquo;t have yet.</p>
+      <p class="reveal">My main direction is <strong>penetration testing and red-team work</strong> &mdash; but I deliberately learn the <strong>blue-team side too</strong>. Practising both in my own lab means I understand not just how to attack a system, but what the defenders see: what malicious activity looks like in the logs and files, and how to detect and harden against it. Knowing both sides makes me better at each.</p>
+      <p class="reveal">I&rsquo;m early in this path, learning fast, and building toward <strong>OpSec</strong> &mdash; my own security and technology practice.</p>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap">
+      <div class="eyebrow reveal">Skills</div>
+      <h2 class="title reveal">What I work with.</h2>
+      <p class="section-lead reveal">A mix of what I&rsquo;m confident in today and what I&rsquo;m actively building. I&rsquo;ve marked the security areas as learning where that&rsquo;s the honest picture.</p>
+      <div class="skills reveal">
+        <div class="skill">
+          <h4><span class="d"></span>Programming</h4>
+          <ul>
+            <li>Python</li>
+            <li>Bash scripting</li>
+            <li>Git &amp; version control</li>
+            <li>HTML / CSS / JS</li>
+            <li>SQLite</li>
+          </ul>
+        </div>
+        <div class="skill">
+          <h4><span class="d"></span>Infrastructure</h4>
+          <ul>
+            <li>Linux administration</li>
+            <li>Docker &amp; containers</li>
+            <li>Networking &amp; VPN</li>
+            <li>Self-hosting</li>
+            <li>Monitoring &amp; backups</li>
+          </ul>
+        </div>
+        <div class="skill">
+          <h4><span class="d"></span>Offensive (red, learning)</h4>
+          <ul>
+            <li>Penetration testing basics</li>
+            <li>Web app security (OWASP)</li>
+            <li>Linux exploitation</li>
+            <li>Reconnaissance</li>
+            <li>CTFs &amp; vulnerable labs</li>
+          </ul>
+        </div>
+        <div class="skill">
+          <h4><span class="d"></span>Defensive (blue, learning)</h4>
+          <ul>
+            <li>Log &amp; file analysis</li>
+            <li>Detection &amp; monitoring</li>
+            <li>System hardening</li>
+            <li>Network segmentation</li>
+            <li>Packet analysis</li>
+          </ul>
+        </div>
+        <div class="skill">
+          <h4><span class="d"></span>Automation &amp; AI</h4>
+          <ul>
+            <li>Home automation</li>
+            <li>LLM / AI integration</li>
+            <li>Scripting &amp; tooling</li>
+            <li>APIs</li>
+            <li>Encryption basics</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <div class="eyebrow reveal">Projects</div>
+      <h2 class="title reveal">Things I&rsquo;ve built.</h2>
+      <p class="section-lead reveal">Real projects, described by what they do and what I learned. Kept light on internals where that&rsquo;s the sensible thing to do.</p>
+      <div class="projects">
+        <div class="proj reveal">
+          <div class="proj-top"><span class="yr">2025 &ndash; present</span><span class="proj-tag live">&#9679; Running</span></div>
+          <h3>Remi &mdash; self-built AI assistant</h3>
+          <p>My own AI assistant that helps with day-to-day work, with persistent memory, an encrypted password vault, and safe, permissioned control over my systems. A hands-on project in AI integration, Python and secure design.</p>
+          <div class="stack"><span>Python</span><span>LLM APIs</span><span>Encryption</span><span>Linux</span></div>
+        </div>
+        <div class="proj reveal">
+          <div class="proj-top"><span class="yr">Ongoing</span><span class="proj-tag live">&#9679; Running</span></div>
+          <h3>Home lab &amp; network security</h3>
+          <p>A self-hosted home lab I designed, secured and monitor &mdash; private networking, segmented services, uptime monitoring and automated backups. My proving ground for infrastructure and the defensive side of security.</p>
+          <div class="stack"><span>Docker</span><span>Linux</span><span>Networking</span><span>Self-hosting</span></div>
+        </div>
+        <div class="proj reveal">
+          <div class="proj-top"><span class="yr">2024</span><span class="proj-tag past">Past project</span></div>
+          <h3>OpScan &mdash; website security scanner</h3>
+          <p>A Python tool I built to scan websites for common security issues &mdash; SSL/TLS validation, security-header checks and breach-database lookups &mdash; producing readable reports. A practical early lesson in security automation and working with APIs.</p>
+          <div class="stack"><span>Python</span><span>Requests</span><span>SSL/TLS</span><span>APIs</span></div>
+        </div>
+        <div class="proj reveal">
+          <div class="proj-top"><span class="yr">Ongoing</span><span class="proj-tag live">&#9679; Shipped</span></div>
+          <h3>Python tools &amp; automation</h3>
+          <p>Practical scripts and small apps that solve actual problems &mdash; an inventory system, portable diagnostic and field tools, and automation utilities. Turning repetitive tasks into tools.</p>
+          <div class="stack"><span>Python</span><span>SQLite</span><span>Flask</span><span>Automation</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="explore" style="padding-top:0">
+    <div class="wrap">
+      <div class="eyebrow reveal">Explore more</div>
+      <h2 class="title reveal">There&rsquo;s more to see.</h2>
+      <p class="section-lead reveal">This is the short version. Dig into the projects, the home lab and the story behind them.</p>
+      <div class="explore">
+        <a class="ex-card reveal" href="https://opperman.dev">
+          <div class="ex-eyebrow">Main site &middot; opperman.dev</div>
+          <h3>See the projects in depth <span class="arr">&rarr;</span></h3>
+          <p>The full picture of what I&rsquo;m building &mdash; Remi, the home lab, my tools, and where OpSec is headed.</p>
+        </a>
+        <a class="ex-card reveal" href="https://blog.opperman.dev">
+          <div class="ex-eyebrow">Blog &middot; blog.opperman.dev</div>
+          <h3>Read how I build &amp; break things <span class="arr">&rarr;</span></h3>
+          <p>Write-ups from my learning journey &mdash; security, automation and the projects as they happen.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="certs">
+    <div class="wrap">
+      <div class="split">
+        <div class="reveal">
+          <div class="eyebrow">Certifications</div>
+          <h2 class="title">Working toward.</h2>
+          <p class="section-lead" style="margin-bottom:26px">The certifications I&rsquo;m studying toward &mdash; listed honestly as goals in progress, not things I already hold.</p>
+          <div class="cert-list">
+            <div class="cert">
+              <div><div class="cn">eJPT</div><div class="cd">Junior Penetration Tester &middot; INE</div></div>
+              <span class="cs">IN PROGRESS</span>
+            </div>
+            <div class="cert">
+              <div><div class="cn">PNPT</div><div class="cd">Practical Network Pentest &middot; TCM</div></div>
+              <span class="cs">PLANNED</span>
+            </div>
+          </div>
+        </div>
+        <div class="reveal">
+          <div class="eyebrow">Learning</div>
+          <h2 class="title">How I&rsquo;m getting there.</h2>
+          <div class="timeline" style="margin-top:26px">
+            <div class="tl-item now">
+              <div class="yr">HANDS-ON PLATFORMS</div>
+              <h4>Practical labs &amp; CTFs</h4>
+              <p>TryHackMe, PortSwigger Academy, HackTheBox and OverTheWire &mdash; learning by doing.</p>
+            </div>
+            <div class="tl-item">
+              <div class="yr">HOME LAB</div>
+              <h4>Vulnerable-app practice</h4>
+              <p>A private lab with intentionally vulnerable apps for safe, hands-on security practice.</p>
+            </div>
+            <div class="tl-item">
+              <div class="yr">BUILDING</div>
+              <h4>Real projects</h4>
+              <p>Every tool I build teaches more than a tutorial &mdash; Python, automation, secure design.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="contact-panel reveal">
+        <div class="eyebrow">Contact</div>
+        <h2 class="title">Let&rsquo;s talk.</h2>
+        <p class="seeking"><strong>Open to:</strong> junior / entry-level roles in security, IT and Python development &mdash; and freelance work in automation, scripting and web.</p>
+        <p class="seeking" style="margin-top:12px">Based in Robertson, Western Cape &middot; open to remote or relocation.</p>
+        <div class="contact-icons">
+          <a class="ico-btn" href="mailto:johanopperman100@gmail.com" aria-label="Email" data-tip="Email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="m3 7 9 6 9-6"/></svg>
+          </a>
+          <a class="ico-btn wa" href="https://wa.me/27799231887" target="_blank" rel="noopener" aria-label="WhatsApp" data-tip="WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.5-.6-2.7-1.2-4.4-3.9-4.6-4.1-.1-.2-1-1.4-1-2.6s.6-1.8.9-2.1c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.2.1.4.1.6-.1l.7-.9c.2-.2.4-.2.6-.1l1.8.9c.3.1.5.2.5.3.1.2.1.6-.1 1.1Z"/></svg>
+          </a>
+          <a class="ico-btn" href="https://github.com/Johan-Opperman" target="_blank" rel="noopener" aria-label="GitHub" data-tip="GitHub">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.36 1.09 2.94.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.6 9.6 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
+          </a>
+          <a class="ico-btn li" href="https://www.linkedin.com/in/johan-opperman-a4884727b" target="_blank" rel="noopener" aria-label="LinkedIn" data-tip="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C21.4 8.65 22 11 22 14.1V21h-4v-6.1c0-1.45-.03-3.3-2-3.3s-2.3 1.57-2.3 3.2V21h-4V9Z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="wrap foot">
+    <div class="brand"><div class="mark">JO</div><div><b>Johan Opperman</b></div></div>
+    <p>&copy; 2026 Johan Opperman &middot; Robertson, Western Cape</p>
+    <div class="foot-links">
+      <a href="https://opperman.dev">Portfolio</a>
+      <a href="https://blog.opperman.dev">Blog</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</footer>
+<script>
+  // ---- full-page network constellation (security "recon map" feel) ----
+  (function(){
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const canvas = document.getElementById('bgcanvas');
+    if(!canvas) return;
+    const ctx = canvas.getContext('2d');
+    let w,h,nodes,raf;
+    const STEEL = '125,176,232';
+
+    function size(){
+      w = canvas.width = window.innerWidth * devicePixelRatio;
+      h = canvas.height = window.innerHeight * devicePixelRatio;
+      canvas.style.width = window.innerWidth+'px';
+      canvas.style.height = window.innerHeight+'px';
+    }
+    function init(){
+      size();
+      const count = Math.min(70, Math.floor((w*h)/(46000*devicePixelRatio)));
+      nodes = [];
+      for(let i=0;i<count;i++){
+        nodes.push({
+          x:Math.random()*w, y:Math.random()*h,
+          vx:(Math.random()-.5)*0.16*devicePixelRatio,
+          vy:(Math.random()-.5)*0.16*devicePixelRatio,
+          r:(Math.random()*1.8+1.1)*devicePixelRatio
+        });
+      }
+    }
+    const LINK = 140*devicePixelRatio;
+    function render(move){
+      ctx.clearRect(0,0,w,h);
+      for(let i=0;i<nodes.length;i++){
+        const n=nodes[i];
+        if(move){
+          n.x+=n.vx; n.y+=n.vy;
+          if(n.x<0||n.x>w) n.vx*=-1;
+          if(n.y<0||n.y>h) n.vy*=-1;
+        }
+        for(let j=i+1;j<nodes.length;j++){
+          const m=nodes[j], dx=n.x-m.x, dy=n.y-m.y, d=Math.hypot(dx,dy);
+          if(d<LINK){
+            const a=(1-d/LINK)*0.42;
+            ctx.strokeStyle='rgba('+STEEL+','+a+')';
+            ctx.lineWidth=1*devicePixelRatio;
+            ctx.beginPath(); ctx.moveTo(n.x,n.y); ctx.lineTo(m.x,m.y); ctx.stroke();
+          }
+        }
+      }
+      for(const n of nodes){
+        ctx.fillStyle='rgba('+STEEL+',0.95)';
+        ctx.beginPath(); ctx.arc(n.x,n.y,n.r,0,Math.PI*2); ctx.fill();
+      }
+    }
+    function loop(){ render(true); raf=requestAnimationFrame(loop); }
+
+    init();
+    if(reduced){ render(false); }   // static draw, no animation
+    else { loop(); }
+
+    let rt; window.addEventListener('resize',function(){ clearTimeout(rt); rt=setTimeout(function(){ if(raf) cancelAnimationFrame(raf); init(); if(reduced){render(false);}else{loop();} },200); });
+  })();
+
+  // ---- typing effect: whole hero headline types out ----
+  (function(){
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const typed = document.getElementById('typed');
+    const caret = document.getElementById('hcaret');
+    if(!typed) return;
+
+    // segments: plain text + one highlighted word
+    const segments = [
+      {t:'Johan Opperman \u2014 building toward '},
+      {t:'cybersecurity', hl:true},
+      {t:', automation & AI.'}
+    ];
+    const full = segments.map(s=>s.t).join('');
+
+    if(reduced){
+      // no animation: render final state immediately
+      typed.innerHTML = 'Johan Opperman \u2014 building toward <span class="accent">cybersecurity</span>, automation &amp; AI.';
+      if(caret) caret.remove();
+      return;
+    }
+
+    // build a map of which char index is inside the highlight
+    let hlStart=-1, hlEnd=-1, acc=0;
+    segments.forEach(s=>{
+      if(s.hl){ hlStart=acc; hlEnd=acc+s.t.length; }
+      acc+=s.t.length;
+    });
+
+    let i=0;
+    function esc(c){ return c==='&'?'&amp;':c==='<'?'&lt;':c==='>'?'&gt;':c; }
+    setTimeout(function tick(){
+      if(i<=full.length){
+        let out='';
+        for(let k=0;k<i;k++){
+          const ch=esc(full[k]);
+          out += (k>=hlStart && k<hlEnd) ? '<span class="accent">'+ch+'</span>' : ch;
+        }
+        typed.innerHTML=out;
+        i++;
+        setTimeout(tick, 80);
+      } else {
+        setTimeout(function(){ if(caret) caret.remove(); }, 1200);
+      }
+    }, 500);
+  })();
+
+  const io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:.1});
+  document.querySelectorAll('.reveal').forEach(function(el,i){ el.style.transitionDelay=(i%4*0.05)+'s'; io.observe(el); });
+
+  // ---- mobile menu toggle with JS-driven cascade (works even w/ reduced-motion) ----
+  function toggleMenu(btn){
+    const nav = document.querySelector('nav.links');
+    const open = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+    btn.innerHTML = open ? '&times;' : '&#8801;';
+    if(open){
+      const items = nav.querySelectorAll('a');
+      items.forEach(function(a,i){
+        a.style.opacity = '0';
+        a.style.transform = 'translateX(-14px)';
+        setTimeout(function(){
+          a.style.transition = 'opacity .3s ease, transform .3s ease';
+          a.style.opacity = '1';
+          a.style.transform = 'none';
+        }, 60 + i*55);
+      });
+    }
+  }
+  // ---- visual feedback when clicking in-page nav links ----
+  document.querySelectorAll('a[href^="#"]').forEach(function(link){
+    link.addEventListener('click', function(){
+      // close mobile menu if open
+      const nav = document.querySelector('nav.links');
+      if(nav && nav.classList.contains('open')){
+        nav.classList.remove('open');
+        const mb = document.querySelector('.menu-btn');
+        if(mb){ mb.setAttribute('aria-expanded','false'); mb.innerHTML='&#8801;'; }
+      }
+      const id = link.getAttribute('href');
+      if(id.length < 2) return;
+      const target = document.querySelector(id);
+      if(!target) return;
+      flashSection(target);
+    });
+  });
+  function flashSection(target){
+    // JS-driven so it works even when CSS animations are disabled.
+    // Uses a bright overlay glow held long enough to be seen even without transitions.
+    const prev = target.style.boxShadow;
+    target.style.transition = 'box-shadow .2s ease-out';
+    target.style.boxShadow = 'inset 0 0 90px 0 rgba(125,176,232,.28)';
+    const title = target.querySelector('.title');
+    let prevColor;
+    if(title){ prevColor = title.style.color; title.style.color='#7db0e8'; }
+    setTimeout(function(){
+      target.style.transition = 'box-shadow 1s ease-out';
+      target.style.boxShadow = prev || 'none';
+      if(title){ title.style.color = prevColor || ''; }
+    }, 550);
+  }
+</script>
+</body>
+</html>
